@@ -1,36 +1,26 @@
 # include <OneWire.h>
 # include <DallasTemperature.h>
 
-const int SENSOR_PIN = 7; // D7 pin
+const int SENSOR_PIN = 7; // D7 pin, right?
 
 OneWire oneWire(SENSOR_PIN); //Connects wire to pin?
 DallasTemperature tempSensor(&oneWire); // library to read and convert
 // .. data from d1u6i7834uks wire thing
 
-float tempCelsius;
+float tempCelsius; // I SPELT CELCIUS WRONG
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  // It's like the baud or something. 
+  Serial.begin(9600); // What does this do?
+  // It's like the baud or something. Souka...
   tempSensor.begin();
-
-  if(tempSensor.getDeviceCount()==0){
-    Serial.println("NO TEMPERATURE SENSORS!");
-  } 
-  else {
-    Serial.print(tempSensor.getDeviceCount());
-    Serial.println(" TEMPERATURE SENSORS FOUND.");
-  }
-  
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   tempSensor.requestTemperatures(); //Self-explanatory
-  tempCelsius = tempSensor.getTempCByIndex(3); // read temp.
-  Serial.print(tempSensor.getTempCByIndex(3));
+  tempCelsius = tempSensor.getTempCByIndex(0); // read temp.
 
   if (tempCelsius != DEVICE_DISCONNECTED_C) {
     Serial.print("Temperature: ");
@@ -38,7 +28,7 @@ void loop() {
   Serial.print(tempCelsius);
   Serial.print(" degrees Celsius");
   Serial.println();
-  } 
+  }
 
 else Serial.println("FAILED TO READ!");
   
@@ -46,4 +36,5 @@ else Serial.println("FAILED TO READ!");
   else Serial.println("LOWER THAN ZERO -- FREEZING!");
   delay(500);
 */
+
 }
