@@ -1,4 +1,4 @@
-const int MOTION_SENSOR_PIN = 4; //D4
+const int MOTION_SENSOR_PIN = 5; //D5
 const int LED_PIN = 2; // D2
 int motionCurrentState = LOW; 
 int motionPreviousState = LOW;

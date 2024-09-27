@@ -1,12 +1,12 @@
 # include <OneWire.h>
 # include <DallasTemperature.h>
 
-const int SENSOR_PIN = 7; // D7 pin, right?
+const int SENSOR_PIN = 7; // 
 
 OneWire oneWire(SENSOR_PIN); //Connects wire to pin?
-DallasTemperature tempSensor(&oneWire); // library to read and convert
+DallasTemperature tempSensor(&oneWire  ); // library to read and convert
 // .. data from d1u6i7834uks wire thing
-
+ 
 float tempCelsius; // I SPELT CELCIUS WRONG
 
 void setup() {
@@ -14,6 +14,9 @@ void setup() {
   Serial.begin(9600); // What does this do?
   // It's like the baud or something. Souka...
   tempSensor.begin();
+
+  Serial.print("Device count: ");
+  Serial.println(tempSensor.getDeviceCount());
 
 }
 
@@ -30,11 +33,15 @@ void loop() {
   Serial.println();
   }
 
-else Serial.println("FAILED TO READ!");
-  
+else {
+  //Serial.println("FAILED TO READ!");
+  Serial.println("SKIBIDI FAILURE!");
+  delay(2000);
+}
 /*  if (tempCelsius > 0) Serial.println("HIGHER THAN ZERO"); 
   else Serial.println("LOWER THAN ZERO -- FREEZING!");
   delay(500);
 */
+
 
 }
