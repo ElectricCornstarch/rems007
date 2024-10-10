@@ -1,7 +1,7 @@
 # include <OneWire.h>
 # include <DallasTemperature.h>
 
-const int SENSOR_PIN = 7; // 
+const int SENSOR_PIN = 4; // 
 
 OneWire oneWire(SENSOR_PIN); //Connects wire to pin?
 DallasTemperature tempSensor(&oneWire  ); // library to read and convert
@@ -34,8 +34,8 @@ void loop() {
   }
 
 else {
-  //Serial.println("FAILED TO READ!");
-  Serial.println("SKIBIDI FAILURE!");
+  Serial.println("FAILED TO READ!");
+  //Serial.println("SKIBIDI FAILURE!");
   delay(2000);
 }
 /*  if (tempCelsius > 0) Serial.println("HIGHER THAN ZERO"); 
