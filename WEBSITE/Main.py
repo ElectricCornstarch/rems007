@@ -14,6 +14,11 @@ modbusClient = Modbus(host,port,unitID)
 connection = modbusClient.modbusConnect()
 session = initDB()
 
+def get_data():
+    return {
+        "dht": convertedDHT22,
+    }
+
 while connection:
     inputRegisters = modbusClient.modbusRead('ir',0,6)
     discreteInputs = modbusClient.modbusRead('di',0,4)
