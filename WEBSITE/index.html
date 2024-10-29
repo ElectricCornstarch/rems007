@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+        <title>Temperature and Humidity Readings</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- "Viewport meta tag" sounds SICK!-->
+        <meta name = "description" content="Show readings as well as options of adjusting.">
+        <link rel="stylesheet" href="styles.css">
+<style>
+
+h2 {
+color: black;
+font-style: normal;
+}
+
+present {
+color: green; /* SO COOL!! */
+}
+
+new {
+color: red;
+}
+
+button {
+        margin: 5px;
+        cursor: pointer;
+}
+
+input {
+        margin: 5px;
+}
+
+</style>
+
+</head>
+
+<section>
+<button>Back</button><br>
+</section>
+
+<body>
+<h1 style="text-align: center;"><em>Temperature and Humidity Readings</em></h1>
+<p style="text-align: center;">To change temperature or humidity, enter number or tap the + or - buttons for the same purpose.<br>
+"Present" reading will gradually change to match the new selection.</p>
+
+<section>
+        <h2><u>Temperature Adjustment</u></h2>
+
+        <p><present>Present temperature: </present></p>
+
+        <form>
+                <label><new>New temperature: </new></label>
+                <button>--</button>
+                <input name="New Temp">
+                <button>+</button>
+
+        </form>
+</section>
+
+<section>
+    <h2><u>Humidity Adjustment</u></h2>
+
+    <p><present>Present humidity: </present></p>
+
+    <form>
+            <label><new>New humidity: </new></label>
+            <button>--</button>
+            <input name="New Humidity">
+            <button>+</button>
+    </form>
+
+</section>
+
+<section>
+<br>
+<button>Done?</button>
+</section>
+
+</body>
+
+</html>
