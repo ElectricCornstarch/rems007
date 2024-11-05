@@ -15,5 +15,5 @@ def floatToUint16(val):
     float_bytes = pack('f', val)
     uint16_vals = unpack('HH', float_bytes)
     uint16_list.extend(uint16_vals)
-    return uint16_list[0], uint16_list[1]
+    return uint16_list[0], uint16_list[1 ]
 

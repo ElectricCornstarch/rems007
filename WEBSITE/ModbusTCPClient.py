@@ -3,6 +3,7 @@ from unit16_converters import floatConvertion
 from time import sleep
 from decimal import Decimal, ROUND_UP
 
+
 class Modbus:
     
     def __init__(self, host, port, unitID):
@@ -99,3 +100,4 @@ class Modbus:
 #     sleep(5)
 
 #     modbusClient.modbusWrite('hr',0,[20])
+

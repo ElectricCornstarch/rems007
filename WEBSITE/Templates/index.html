@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 
 <head>
         <title>Temperature and Humidity Readings</title>
@@ -15,6 +14,10 @@ h2 {
 color: black;
 font-style: normal;
 }
+
+changeFont{    /*It's like void(){}!*/
+font-family: Arial, Helvetica, sans-serif;
+      }
 
 present {
 color: green; /* SO COOL!! */
@@ -33,53 +36,96 @@ input {
         margin: 5px;
 }
 
+.slider {
+
+        background: #d3d3d3;
+        width: 75%;
+        height: 25px;
+}
+
 </style>
 
 </head>
 
 <section>
-<button>Back</button><br>
+<button><a href= "https://hgvsupport.ddns.net/">Back</a></button><br>
 </section>
 
 <body>
+        <changeFont>
 <h1 style="text-align: center;"><em>Temperature and Humidity Readings</em></h1>
 <p style="text-align: center;">To change temperature or humidity, enter number or tap the + or - buttons for the same purpose.<br>
 "Present" reading will gradually change to match the new selection.</p>
 
+<!-- Temperature stuff-->
 <section>
         <h2><u>Temperature Adjustment</u></h2>
 
-        <p><present>Present temperature: </present></p>
+        <p><present>Present temperature: </present> {{ currentTemp }} degrees celcius.</p>
 
-        <form>
+
+        <form> 
                 <label><new>New temperature: </new></label>
                 <button>--</button>
-                <input name="New Temp">
+                <input name="New Temp" type="number">
                 <button>+</button>
 
         </form>
+
 </section>
 
+
+<!-- Humidity stuff-->
 <section>
     <h2><u>Humidity Adjustment</u></h2>
 
     <p><present>Present humidity: </present></p>
-    <p>{{ data.dht }}</p>
+    <slider>
+        <input type="range" min="0" max="30" value="{{currentTemp}}" disabled class="slider" id="Present Humidity">
+        <!-- Disabled bc no one's allowed to change it-->
+        </slider>
 
     <form>
             <label><new>New humidity: </new></label>
-            <button>--</button>
-            <input name="New Humidity">
-            <button>+</button>
+            <input name="New Humidity" type="number" id="humidityInput" min="0" max="30" value="15">
     </form>
-
+    <slider>
+    <input type="range" min="0" max="30" value="15" class="slider" id="humiditySlider">
+</slider>
+<p><span id="sliderValue">15</span>%</p>
 </section>
 
+
+<!-- Done button-->
 <section>
-<br>
+<br> 
 <button>Done?</button>
 </section>
 
-</body>
+</changeFont> <!-- Go to changeFont section in style to change font of all text-->
+<!-- Honestly, being able to create your own tags is pretty sick-->
 
-</html>
+<script>
+        var slider = document.getElementById("humiditySlider");
+        var input = document.getElementById("humidityInput");
+        var sliderValue = document.getElementById("sliderValue");
+        /*
+        Takes the thing named "demo" or "myRange"
+        and stores it in variable
+        */
+        slider.oninput = function(){
+                sliderValue.textContent = this.value;
+                input.value = this.value;
+        }
+
+        input.addEventListener("input", function(){
+                var value = input.value;
+                if (value >= 0 && value <= 30) {         // Ensure the value is within the range of the slider
+                        slider.value = value;               // Update the slider
+                        sliderValue.textContent = value;  
+                }
+        })
+</script>
+
+</body>
+</html> 
