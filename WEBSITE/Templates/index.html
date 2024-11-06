@@ -33,14 +33,15 @@ button {
 }
 
 input {
-        margin: 5px;
+        margin: 5px; 
 }
 
 .slider {
 
         background: #d3d3d3;
-        width: 75%;
+        width: 50%;
         height: 25px;
+        cursor: grab;
 }
 
 </style>
@@ -64,8 +65,8 @@ input {
         <slider>
             <input type="range" min="0" max="30" value="15" disabled class="slider" id="PresentTemperature">
         </slider>
-        <form>
-            <label><new>New temperature: </new></label>
+        <form action="/submit" method="POST">
+            <label for="temperature"><new>New temperature: </new></label>
             <input name="New temperature" type="number" id="tempInput" min="0" max="30" value="15">
         </form>
         <slider>
@@ -85,7 +86,7 @@ input {
         <!-- Disabled bc no one's allowed to change it-->
         </slider>
 
-    <form>
+    <form action="/submit" method="POST">
             <label><new>New humidity: </new></label>
             <input name="New Humidity" type="number" id="humidityInput" min="0" max="100" value="15">
     </form>
